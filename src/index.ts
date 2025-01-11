@@ -8,7 +8,6 @@ import {
 } from "@elizaos/core";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 import { createNodePlugin } from "@elizaos/plugin-node";
-import { solanaPlugin } from "@elizaos/plugin-solana";
 import { starknetPlugin } from "@elizaos/plugin-starknet";
 import fs from "fs";
 import net from "net";
@@ -57,10 +56,9 @@ export function createAgent(
     evaluators: [],
     character,
     plugins: [
+      starknetPlugin,
       bootstrapPlugin,
       nodePlugin,
-      character.settings?.secrets?.WALLET_PUBLIC_KEY ? solanaPlugin : null,
-      starknetPlugin
     ].filter(Boolean),
     providers: [],
     actions: [],

@@ -22,12 +22,12 @@ export async function initializeClients(
 
   if (clientTypes.includes("telegram")) {
     const telegramClient = await TelegramClientInterface.start(runtime);
-    if (telegramClient) clients.push(telegramClient);
+    if (telegramClient) clients.push("telegram", telegramClient);
   }
 
   if (clientTypes.includes("twitter")) {
     const twitterClients = await TwitterClientInterface.start(runtime);
-    clients.push(twitterClients);
+    clients.push("telegram", twitterClients);
   }
 
   if (character.plugins?.length > 0) {
